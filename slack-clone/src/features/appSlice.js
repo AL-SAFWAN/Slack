@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  roomId: null,
+  roomId: '',
 };
 
 
@@ -22,7 +22,7 @@ export const appSlice = createSlice({
 export const { enterRoom } = appSlice.actions;
 
 //Value Selector
-export const selectRoomId = (state) => state.app.roomId;
+export const selectRoomId = (state) => state.app.roomId.roomId;
 
 
 export default appSlice.reducer;
