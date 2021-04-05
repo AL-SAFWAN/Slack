@@ -1,6 +1,7 @@
-import { Create, FiberManualRecordRounded } from "@material-ui/icons";
+import { Apps, BookmarkBorder, Create, Drafts, ExpandLess, FiberManualRecordRounded, FileCopy, Inbox, InsertComment, PeopleAlt } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
+import SideBarOption from "./SideBarOption";
 function SideBar() {
   return (
     <SidebarContainer>
@@ -14,6 +15,15 @@ function SideBar() {
         </SideBarInfo>
         <Create />
       </SideBarHeader>
+      <SideBarOption Icon= {InsertComment} title='Threads'/>
+      <SideBarOption Icon= {Inbox} title='Mentions & reactions'/>
+      <SideBarOption Icon= {Drafts} title='Saved items'/>
+      <SideBarOption Icon= {BookmarkBorder} title='Channel browser'/>
+      <SideBarOption Icon= {PeopleAlt} title='People & user groups'/>
+      <SideBarOption Icon= {Apps} title='Apps'/>
+      <SideBarOption Icon= {FileCopy} title='File browser'/>
+      <SideBarOption Icon= {ExpandLess} title='Show less'/>
+
     </SidebarContainer>
   );
 }
