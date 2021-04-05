@@ -24,7 +24,8 @@ const MessageContainer = styled.div`
   > img {
     height: 50px;
     width: 50px;
-    aspect-ratio: 1/1;
+    object-fit: contain;
+    /* aspect-ratio: 1/1; */
     border-radius: 8px;
   }
 `;
