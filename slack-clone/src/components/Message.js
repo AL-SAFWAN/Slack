@@ -25,7 +25,6 @@ const MessageContainer = styled.div`
     height: 50px;
     width: 50px;
     object-fit: contain;
-    /* aspect-ratio: 1/1; */
     border-radius: 8px;
   }
 `;
