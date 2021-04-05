@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { db } from "../firebase";
 import firebase from "firebase";
 
-function ChatInput({ channelName, channelId }) {
+function ChatInput({ channelName, channelId, chatRef }) {
   const inputRef = useRef("");
   console.log(channelId);
 
@@ -23,6 +23,10 @@ function ChatInput({ channelName, channelId }) {
         "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/blackhole.png?itok=THJrwcHP",
     });
     console.log(inputRef.current.value);
+
+      chatRef?.current?.scrollIntoView({
+        behaviour: "smooth",
+      })
     inputRef.current.value = "";
   };
 
