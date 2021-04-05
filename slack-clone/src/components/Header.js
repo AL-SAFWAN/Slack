@@ -1,5 +1,5 @@
 import { Avatar, Input } from "@material-ui/core";
-import { AccessTime, Search } from "@material-ui/icons";
+import { AccessTime, Help, Search } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 function Header() {
@@ -14,15 +14,19 @@ function Header() {
       </HeaderLeft>
       {/* Search Bar */}
       <HeaderSearch>
-        <Search/>
-        <input  placeholder ='search ...'/>
+        <Search />
+        <input placeholder="search ..." />
       </HeaderSearch>
       {/* Header Right */}
+      <HeaderRight>
+          <Help/>
+      </HeaderRight>
     </HeaderContainer>
   );
 }
 
 export default Header;
+
 
 const HeaderSearch = styled.div`
   flex: 0.4;
@@ -34,13 +38,13 @@ const HeaderSearch = styled.div`
   padding: 0 50px;
   color: gray;
   border: 1px gray solid;
-  > input{
-      background-color: transparent;
-      border: none;
-      text-align: center;
-      min-width: 30vw;
-      outline: 0; 
-      color: white;
+  > input {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    min-width: 30vw;
+    outline: 0;
+    color: white;
   }
 `;
 
@@ -65,6 +69,16 @@ const HeaderLeft = styled.div`
     margin-left: auto;
     margin-right: 30px;
   }
+`;
+
+const HeaderRight = styled.div`
+flex: 0.3;
+display: flex;
+align-items: flex-end;
+> .MuiSvgIcon-root{
+    margin-left: auto;
+    margin-right: 20px;
+}
 `;
 
 const HeaderAvatar = styled(Avatar)`
