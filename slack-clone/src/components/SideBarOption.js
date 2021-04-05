@@ -31,7 +31,7 @@ function SideBarOption({ Icon, title, addChannelOption, id }) {
       return;
     }
     if (channelName.current) {
-      db.collection("room").add({
+      db.collection("rooms").add({
         name: channelName.current,
       });
     }

@@ -20,7 +20,7 @@ import { db } from "../firebase";
 
 
 function SideBar() {    
-  const [channels, loading, error] = useCollection(db.collection("room"));
+  const [channels, loading, error] = useCollection(db.collection("rooms"));
   return (
     <SidebarContainer>
       <SideBarHeader>
