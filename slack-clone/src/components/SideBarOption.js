@@ -8,8 +8,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { db } from "../firebase";
+import { useDispatch } from "react-redux";
+import { enterRoom } from "../features/appSlice";
 
 function SideBarOption({ Icon, title, addChannelOption, id }) {
+  const dispatch = useDispatch()
   const [open, setOpen] = React.useState(false);
   const channelName = React.useRef("");
 
@@ -35,7 +38,14 @@ function SideBarOption({ Icon, title, addChannelOption, id }) {
     setOpen(false);
     channelName.current = "";
   };
-  const selectChannel = () => {};
+  const selectChannel = () => {
+    console.log(id, 'called')
+    if(id){
+      dispatch(enterRoom({
+        roomId: id
+      }))
+    }
+  };
 
   return (
     <>
@@ -102,6 +112,6 @@ const SideBarOptionContainer = styled.div`
   }
 `;
 const SidebarOptionsChannel = styled.h3`
-padding: 10px 0;
-font-weight: 300;
+  padding: 10px 0;
+  font-weight: 300;
 `;
