@@ -16,11 +16,12 @@ import React from "react";
 import styled from "styled-components";
 import SideBarOption from "./SideBarOption";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-
-function SideBar() {    
+function SideBar() {
   const [channels, loading, error] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
   return (
     <SidebarContainer>
       <SideBarHeader>
@@ -28,7 +29,7 @@ function SideBar() {
           <h2>Test user company</h2>
           <h3>
             <FiberManualRecordRounded />
-            Test user name
+            {user.displayName}
           </h3>
         </SideBarInfo>
         <Create />
@@ -44,14 +45,14 @@ function SideBar() {
       <hr />
       <SideBarOption Icon={ExpandMore} title="Channels" />
       <hr />
-      <SideBarOption Icon={Add} title="Add Channels" addChannelOption/>
-      
-      {channels?.docs.map(doc =>{
-      return <SideBarOption key={doc.id} id={doc.id} title={doc.data().name} />
+      <SideBarOption Icon={Add} title="Add Channels" addChannelOption />
 
+      {channels?.docs.map((doc) => {
+        return (
+          <SideBarOption key={doc.id} id={doc.id} title={doc.data().name} />
+        );
       })}
     </SidebarContainer>
-
   );
 }
 
@@ -68,7 +69,6 @@ const SidebarContainer = styled.div`
     border: 1px solid #49274b;
     margin-top: 10px;
     margin-bottom: 10px;
-
   }
 `;
 const SideBarHeader = styled.div`
