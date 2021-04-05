@@ -1,5 +1,5 @@
-import { Avatar } from "@material-ui/core";
-import { AccessTime } from "@material-ui/icons";
+import { Avatar, Input } from "@material-ui/core";
+import { AccessTime, Search } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 function Header() {
@@ -13,6 +13,10 @@ function Header() {
         <AccessTime />
       </HeaderLeft>
       {/* Search Bar */}
+      <HeaderSearch>
+        <Search/>
+        <input  placeholder ='search ...'/>
+      </HeaderSearch>
       {/* Header Right */}
     </HeaderContainer>
   );
@@ -20,8 +24,35 @@ function Header() {
 
 export default Header;
 
+const HeaderSearch = styled.div`
+  flex: 0.4;
+  opacity: 1;
+  border-radius: 10px;
+  background-color: #421f44;
+  text-align: center;
+  display: flex;
+  padding: 0 50px;
+  color: gray;
+  border: 1px gray solid;
+  > input{
+      background-color: transparent;
+      border: none;
+      text-align: center;
+      min-width: 30vw;
+      outline: 0; 
+      color: white;
+  }
+`;
+
 const HeaderContainer = styled.div`
   display: flex;
+  position: fixed;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  background-color: var(--slack-color);
+  color: white;
 `;
 
 const HeaderLeft = styled.div`
@@ -37,8 +68,8 @@ const HeaderLeft = styled.div`
 `;
 
 const HeaderAvatar = styled(Avatar)`
-cursor: pointer;
-:hover{
+  cursor: pointer;
+  :hover {
     opacity: 0.8;
-}
+  }
 `;
