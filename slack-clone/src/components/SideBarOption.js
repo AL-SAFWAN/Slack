@@ -9,7 +9,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { db } from "../firebase";
 
-function SideBarOption({ Icon, title, addChannelOption }) {
+function SideBarOption({ Icon, title, addChannelOption, id }) {
   const [open, setOpen] = React.useState(false);
   const channelName = React.useRef("");
 
@@ -27,10 +27,10 @@ function SideBarOption({ Icon, title, addChannelOption }) {
       alert("enter a channel name");
       return;
     }
-    if(channelName.current){
-      db.collection('room').add({
-        name: channelName.current
-      })
+    if (channelName.current) {
+      db.collection("room").add({
+        name: channelName.current,
+      });
     }
     setOpen(false);
     channelName.current = "";
@@ -101,4 +101,7 @@ const SideBarOptionContainer = styled.div`
     padding: 15px;
   }
 `;
-const SidebarOptionsChannel = styled.div``;
+const SidebarOptionsChannel = styled.h3`
+padding: 10px 0;
+font-weight: 300;
+`;
